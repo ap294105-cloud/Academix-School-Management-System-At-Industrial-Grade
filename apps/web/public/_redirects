@@ -1,0 +1,2 @@
+/api/*  https://academix-school-management-system-a-flax.vercel.app/api/:splat  200
+/*      /index.html  200
