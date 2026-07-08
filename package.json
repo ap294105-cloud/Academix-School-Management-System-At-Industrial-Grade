@@ -1,0 +1,20 @@
+{
+  "name": "sms-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/common",
+    "apps/backend",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=apps/backend",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:web\"",
+    "build": "npm run build --workspace=apps/backend && npm run build --workspace=apps/web",
+    "db:setup": "npm run db:setup --workspace=apps/backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
