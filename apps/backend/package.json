@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
+    "build": "npx prisma generate && tsc",
     "db:setup": "npx prisma generate && npx prisma db push && ts-node src/utils/seed.ts"
   },
   "dependencies": {

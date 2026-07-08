@@ -236,6 +236,10 @@ app.post('/api/notifications/:id/read', authenticate, async (req: any, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`[SMS-BACKEND] Server listening on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`[SMS-BACKEND] Server listening on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
