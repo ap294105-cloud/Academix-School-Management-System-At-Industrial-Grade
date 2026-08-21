@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { inject } from '@vercel/analytics';
 import { authenticate, requireRole } from './middleware/auth';
 import { login, getCurrentUser } from './controllers/auth.controller';
 import { getDashboardStats } from './controllers/dashboard.controller';
@@ -102,6 +103,9 @@ import {
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Initialize Vercel Analytics
+inject();
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
